@@ -1,7 +1,6 @@
-package com.company;
+package ru.spaceaccordeonist.task1;
 
-public class Main {
-
+public class Task1 {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6};
         System.out.printf("program #1\nfor: %d\n", Calculator.sumArrayFor(arr));
@@ -37,7 +36,6 @@ public class Main {
         System.out.println();
 
         System.out.println("program #5");
-        System.out.printf("factorial of %d = %d",5, Calculator.getFactorial(5));
-
+        System.out.printf("factorial of %d = %d", 4, Calculator.getFactorial(5));
     }
 }

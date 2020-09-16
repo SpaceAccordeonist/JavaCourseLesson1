@@ -1,4 +1,4 @@
-package com.company;
+package ru.spaceaccordeonist.task1;
 
 import java.util.Random;
 
