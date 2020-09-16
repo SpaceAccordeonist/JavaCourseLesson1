@@ -1,10 +1,14 @@
 package ru.spaceaccordeonist.task2.model;
 
 public class Shape {
-    private String name;
-    private Double area, perimeter;
+    protected String name;
+    protected Double area, perimeter;
 
-    public Shape(String name, Double area, Double perimeter) {
+    public Shape(String name) {
+        this.name = name;
+    }
+
+    public Shape(String name, double area, double perimeter) {
         this.name = name;
         this.area = area;
         this.perimeter = perimeter;
@@ -14,11 +18,11 @@ public class Shape {
         return name;
     }
 
-    public Double getArea() {
+    public double getArea() {
         return area;
     }
 
-    public Double getPerimeter() {
+    public double getPerimeter() {
         return perimeter;
     }
 
