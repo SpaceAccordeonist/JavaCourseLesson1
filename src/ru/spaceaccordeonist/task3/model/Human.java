@@ -23,10 +23,12 @@ public class Human {
         head = new Head(hairColor, eyeColor);
     }
 
-    public void walk(int times){
-        for(int i = 0; i < times; i++){
-            leftLeg.step();
-            rightLeg.step();
+    public void walk(int steps){
+        for(int i = 0; i < steps; i++){
+            if (i % 2 == 0)
+                leftLeg.step();
+            else
+                rightLeg.step();
         }
     }
 
