@@ -52,6 +52,16 @@ public class CompanyTest {
         System.out.println("TOP:");
         company.getTopSalaryStaff(10).forEach(System.out::println);
         System.out.println("\nLOWEST:");
-        company.getLowestSalaryStaff(10).forEach(System.out::println);
+        company.getLowestSalaryStaff(30).forEach(System.out::println);
+
+        int countToFire = company.getEmployeesCount()/2;
+        for(int i = 0; i < countToFire; i++){
+            company.fire(rnd.nextInt(company.getEmployeesCount()));
+        }
+
+        System.out.println("\nNEW TOP:");
+        company.getTopSalaryStaff(10).forEach(System.out::println);
+        System.out.println("\nNEW LOWEST:");
+        company.getLowestSalaryStaff(30).forEach(System.out::println);
     }
 }

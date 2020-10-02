@@ -19,6 +19,10 @@ public class Company {
         return name;
     }
 
+    public int getEmployeesCount(){
+        return employees.size();
+    }
+
     public void hire(Employee employee, Positions position, double salary){
         employee.setPosition(createPosition(position));
         employee.setBaseSalary(salary);
@@ -32,8 +36,9 @@ public class Company {
         employees.forEach(employee -> hire(employee, position, salary + Math.round(salary * Math.random()/3)));
     }
 
-    public void fire(Employee employee){
-        employees.remove(employee);
+    public void fire(int id){
+        if (id < employees.size())
+            employees.remove(id);
     }
 
     public double getIncome(){
