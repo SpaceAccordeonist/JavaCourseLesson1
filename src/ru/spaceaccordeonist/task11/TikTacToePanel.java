@@ -1,12 +1,7 @@
 package ru.spaceaccordeonist.task11;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Calendar;
 
 public class TikTacToePanel {
     private JButton[][] buttons = new JButton[3][3];
