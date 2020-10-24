@@ -19,17 +19,26 @@ public class PhoneBook {
             String command = scanner.next();
             if(command.equals("LIST")){
                 for(String key: phoneBook.keySet()){
-                    System.out.printf("%s %s\n", key, phoneBook.get(key));
+                    System.out.printf("%s %s\n", phoneBook.get(key), key);
                 }
-            }else {
+            } else {
                 if(namePattern.matcher(command).matches()){
-                    if(phoneBook.containsKey(command))
-                        System.out.printf("%s %s\n", command, phoneBook.get(command));
-                    else{
+                    if(phoneBook.containsValue(command)) {
+                        String phone = null;
+                        for (String key : phoneBook.keySet()) {
+                            if (command.equals(phoneBook.get(key))) {
+                                phone = key;
+                            }
+                        }
+                        if(phone != null)
+                            System.out.printf("%s %s\n", command, phone);
+                        else
+                            System.out.println("No phone");
+                    } else{
                         System.out.println("Enter phone: ");
                         try{
                             String phone = formatter.formatPhone(scanner.next());
-                            phoneBook.put(command, phone);
+                            phoneBook.put(phone, command);
                         }catch (PhoneFormatException e){
                             System.out.println("Invalid phone format");
                         }
@@ -37,17 +46,19 @@ public class PhoneBook {
                 } else if(!command.isBlank()){
                     try{
                         command = formatter.formatPhone(command);
-                        String name = null;
-                        for (String key : phoneBook.keySet()){
-                            if(command.equals(phoneBook.get(key))){
-                                name = key;
-                                break;
-                            }
-                        }
-                        if(name != null){
-                            System.out.printf("%s %s\n", name,command);
+                        if(phoneBook.containsKey(command)) {
+                            System.out.printf("%s %s\n", phoneBook.get(command) ,command );
                         } else{
-                            System.out.println("No such phone");
+                            System.out.println("Enter name: ");
+                            try{
+                                String name = scanner.next();
+                                if(namePattern.matcher(name).matches())
+                                    phoneBook.put(command, name);
+                                else
+                                    System.out.println("Invalid name");
+                            }catch (PhoneFormatException e){
+                                System.out.println("Invalid phone format");
+                            }
                         }
                     } catch (PhoneFormatException e){
                         System.out.println("Invalid phone format");
