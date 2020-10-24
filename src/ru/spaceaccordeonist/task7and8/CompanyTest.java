@@ -1,7 +1,7 @@
-package ru.spaceaccordeonist.task7_8;
+package ru.spaceaccordeonist.task7and8;
 
-import ru.spaceaccordeonist.task7_8.model.Company;
-import ru.spaceaccordeonist.task7_8.model.Employee;
+import ru.spaceaccordeonist.task7and8.model.Company;
+import ru.spaceaccordeonist.task7and8.model.Employee;
 
 import java.util.ArrayList;
 import java.util.Date;

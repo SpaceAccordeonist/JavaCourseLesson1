@@ -1,7 +1,6 @@
-package ru.spaceaccordeonist.task12;
+package ru.spaceaccordeonist.task12_7;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Task3 {
     public static void main(String[] args) {

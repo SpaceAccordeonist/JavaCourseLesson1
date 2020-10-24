@@ -1,4 +1,4 @@
-package ru.spaceaccordeonist.task7_8.model;
+package ru.spaceaccordeonist.task7and8.model;
 
 public class Manager implements EmployeePosition {
     private double profit = Math.random() * 25000 + 115000;

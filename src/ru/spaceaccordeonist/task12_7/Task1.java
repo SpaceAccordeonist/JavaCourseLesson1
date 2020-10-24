@@ -1,4 +1,4 @@
-package ru.spaceaccordeonist.task12;
+package ru.spaceaccordeonist.task12_7;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

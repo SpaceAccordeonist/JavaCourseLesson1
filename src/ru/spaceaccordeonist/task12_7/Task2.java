@@ -1,4 +1,4 @@
-package ru.spaceaccordeonist.task12;
+package ru.spaceaccordeonist.task12_7;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.spaceaccordeonist.task7_8.model;
+package ru.spaceaccordeonist.task7and8.model;
 
 public class Employee {
     protected String name;

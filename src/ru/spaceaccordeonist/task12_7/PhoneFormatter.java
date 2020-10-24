@@ -1,4 +1,4 @@
-package ru.spaceaccordeonist.task12;
+package ru.spaceaccordeonist.task12_7;
 
 import java.util.regex.Pattern;
 
@@ -26,12 +26,5 @@ public class PhoneFormatter {
                 rawPhone.substring(4,7),
                 rawPhone.substring(7,9),
                 rawPhone.substring(9));
-    }
-}
-
-class PhoneFormatException extends RuntimeException{
-    @Override
-    public String getMessage() {
-        return "Неверный формат номера";
     }
 }
