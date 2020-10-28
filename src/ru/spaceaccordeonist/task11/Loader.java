@@ -17,7 +17,7 @@ public class Loader implements GameOverListener{
 
 
         player1 = new ManualPlayer("Player1", Game.Figure.CROSS);
-        player2 = new RandomPlayer("Player2", Game.Figure.ROUND);
+        player2 = new TacticalPlayer("Player2", Game.Figure.ROUND);
 
         game = new Game(player1, player2);
         game.setGameOverListener(this);
