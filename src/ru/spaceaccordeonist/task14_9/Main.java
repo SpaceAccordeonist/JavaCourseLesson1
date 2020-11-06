@@ -16,13 +16,13 @@ public class Main {
         System.out.println("Generating of license plates...");
         Instant start = Instant.now();
         int region;
-        for(int a = 0; a < letters.length; a++) {
-            for (int b = 0; b < letters.length; b++) {
-                for (int c = 0; c < letters.length; c++) {
+        for (String a : letters) {
+            for (String b : letters) {
+                for (String c : letters) {
                     for (int i = 0; i < 1000; i++) {
                         for (int r = 0; r < 2; r++) {
                             region = rnd.nextInt(200);
-                            String temp = String.format("%1s%03d%1s%1s%02d", letters[a], i, letters[b], letters[c], region);
+                            String temp = String.format("%1s%03d%1s%1s%02d", a, i, b, c, region);
                             arrayList.add(temp);
                             hashSet.add(temp);
                             treeSet.add(temp);
