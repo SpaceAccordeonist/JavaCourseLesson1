@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.util.Scanner;
 
 public class Task3 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Enter which directory to copy: ");
@@ -22,8 +22,7 @@ public class Task3 {
             Main.logMessage("Can't reach destination directory!");
         }
         try{
-            CopingFileVisitor visitor = new CopingFileVisitor(to);
-            Files.walkFileTree(from, visitor);
+            Files.walkFileTree(from, new CopingFileVisitor(to));
         } catch (IOException e){
             e.printStackTrace();
         }
