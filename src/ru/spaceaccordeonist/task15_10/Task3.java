@@ -15,15 +15,20 @@ public class Task3 {
         path = scan.nextLine();
         Path to = Paths.get(path);
 
-        if(!Files.exists(from) || !Files.isDirectory(from)){
-            Main.logMessage("Can't reach coping directory!");
-        }
-        if(!Files.exists(to) || !Files.isDirectory(to)){
-            Main.logMessage("Can't reach destination directory!");
-        }
+
         try{
+            if(!Files.exists(from) || !Files.isDirectory(from)){
+                Main.logMessage("Can't reach coping directory!");
+                throw new NoSuchFileException(from.toString());
+            }
+            if(!Files.exists(to) || !Files.isDirectory(to)){
+                Main.logMessage("Can't reach destination directory!");
+                throw new NoSuchFileException(to.toString());
+            }
             Files.walkFileTree(from, new CopingFileVisitor(to));
+            Main.logMessage("> Coping succeed!");
         } catch (IOException e){
+            Main.logMessage("> Coping failed!");
             e.printStackTrace();
         }
 

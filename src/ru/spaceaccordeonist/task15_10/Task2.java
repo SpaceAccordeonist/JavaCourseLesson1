@@ -1,9 +1,12 @@
 package ru.spaceaccordeonist.task15_10;
 
+import com.sun.source.tree.Tree;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Task2 {
     static long dirSize = 0;
@@ -14,7 +17,7 @@ public class Task2 {
         String path = scan.nextLine();
         Path dir = Paths.get(path);
         if(Files.exists(dir) && Files.isDirectory(dir)){
-            Files.walkFileTree(dir, new FileVisitor<Path>() {
+            Files.walkFileTree(dir, new TreeSet<>(), Integer.MAX_VALUE , new FileVisitor<Path>() {
                 @Override
                 public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
                     return FileVisitResult.CONTINUE;
@@ -42,16 +45,14 @@ public class Task2 {
         }
 
         String size;
-        if(dirSize < 8){
-            size = String.format("%.0f bit", (double)dirSize);
-        } else if (dirSize < 8*1024L) {
-            size = String.format("%.0f byte", dirSize/(8f));
-        } else if (dirSize < 8*1024*1024L) {
-            size = String.format("%.0f Kb", dirSize/(1024f*8));
-        } else if (dirSize < 8*1024*1024*1024L) {
-            size = String.format("%.0f Mb", dirSize/(1024f*1024*8));
+        if (dirSize < 1024L) {
+            size = String.format("%d byte", dirSize);
+        } else if (dirSize < 1024*1024L) {
+            size = String.format("%.1f Kb", (double)dirSize/(1024d));
+        } else if (dirSize < 1024*1024*1024L) {
+            size = String.format("%.1f Mb", (double)dirSize/(1024d*1024d));
         } else {
-            size = String.format("%.0f Gb", dirSize/(1024f*1024*1024*8));
+            size = String.format("%.1f Gb", (double)dirSize/(1024d*1024d*1024d));
         }
         Main.logMessage(dir + " size is " + size);
     }

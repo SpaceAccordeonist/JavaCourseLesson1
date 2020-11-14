@@ -14,9 +14,11 @@ public class CopingFileVisitor implements FileVisitor<Path> {
     @Override
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
         if(rootLocation == null)
-            rootLocation = dir.getParent();
-        if(attrs.isDirectory() && !Files.exists(destination.resolve(rootLocation.relativize(dir))))
-            Files.createDirectory(destination.resolve(rootLocation.relativize(dir)));
+            rootLocation = dir;
+        else {
+            if (attrs.isDirectory() && !Files.exists(destination.resolve(rootLocation.relativize(dir))))
+                Files.createDirectory(destination.resolve(rootLocation.relativize(dir)));
+        }
         return FileVisitResult.CONTINUE;
     }
 
