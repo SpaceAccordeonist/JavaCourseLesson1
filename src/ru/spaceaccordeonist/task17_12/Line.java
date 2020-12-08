@@ -1,6 +1,4 @@
-package ru.spaceaccordeonist.task_17_12;
-
-import com.google.gson.annotations.Expose;
+package ru.spaceaccordeonist.task17_12;
 
 import java.util.ArrayList;
 
